@@ -12,12 +12,18 @@ import es.dam.codeoptimization.PlayerStats;
  * @author Boris
  */
 public class FantasyCalculator {
-
+/*
+    calculatePoints: Calcula la puntuacion definitiva de un jugador para un partido
+    */
     public static int calculatePoints(PlayerStats stats) {
         return calculateCommonPoints(stats) 
                 + calculatePointsByPosition(stats);
     }
 
+    /*
+    Calcula la puntuacion total del jugador en funcion de su posicion en el campo
+Este metodo identifica la osicion del jugaador y llama al metodo de calcuo correspondientes para calcular los puntos
+    */
     private static int calculatePointsByPosition(PlayerStats stats) {
         final String GOALKEEPER_STRING = "PORTERO";
         final String DEFENCE_STRING = "DEFENSA";
@@ -44,6 +50,11 @@ public class FantasyCalculator {
         return points;
     }
 
+    /*
+    Calcula la suma de puntos comunes a todos los jugadores
+Este metodo consolida los puntos conseguidos por factores generales que no dependen de la posicion
+    */
+    
     private static int calculateCommonPoints(PlayerStats stats) {
         return calculateMinutesPlayed(stats.minutes)
                 + calculateYellowCard(stats.yellowCard)
@@ -88,8 +99,6 @@ public class FantasyCalculator {
         return saves * POINTS_PER_SAVE;
     }
 
-    
-    }
 
     private static int calculateMatchResult(char matchResult) {
         final char MATCH_WON = 'G';
