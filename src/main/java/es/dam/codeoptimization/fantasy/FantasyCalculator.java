@@ -52,8 +52,8 @@ public class FantasyCalculator {
     }
 
     private static int calculateForwardPoints(PlayerStats stats) {
-        return calculateGoalsForward(stats.goals)
-                + calculateAssistsForward(stats.assists);
+        return calculateGoals(stats.goals)
+                + calculateAssists(stats.assists);
     }
 
     private static int calculateMidfielderPoints(PlayerStats stats) {
@@ -74,11 +74,7 @@ public class FantasyCalculator {
                 + calculateGoalsReceived(stats.goalsAgainst);
     }
 
-    private static int calculateAssistsForward(int assists) {
-        final int POINTS_PER_ASSIST = 5;
-
-        return assists * POINTS_PER_ASSIST;
-    }
+    
 
     private static int calculateAssists(int assists) {
         final int POINTS_PER_ASSIST = 6;
@@ -92,10 +88,7 @@ public class FantasyCalculator {
         return saves * POINTS_PER_SAVE;
     }
 
-    private static int calculateGoalsForward(int goals) {
-        final int POINTS_PER_GOAL = 6;
-
-        return goals * POINTS_PER_GOAL;
+    
     }
 
     private static int calculateMatchResult(char matchResult) {
